@@ -1,0 +1,70 @@
+html{height: 100%;}
+body{
+    height: 100%;
+    background-color: #393939;
+    color: black;
+    font-family: sans-serif;
+}
+.cv{
+    margin: auto;
+    table-layout: fixed;
+    width: 650px;
+    background: WHITE;
+    border: 2px solid black;
+     border-spacing: 10px;
+}
+/*styl do CV1*/
+#zdjecie{
+    height: 200px;
+    width: 200px;
+}
+.srodek{
+    border-spacing: 10px;
+    width: 600px;
+    border-bottom: 1px solid #FF6F04;
+    padding: 15px;
+    margin-left: 10px;
+}
+#dane{
+    font-family: Verdana, sans-serif;
+}
+
+#glowna{
+    border-bottom: 5px solid #FF6F04;
+}
+/*styl do CV2*/
+div{
+    margin: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #FF6F04;
+}
+#dane2{
+    margin-left: 20px;
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 1.5;
+}
+#zdjecie2{
+    height: 200px;
+    width: 200px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 100px;
+    margin-bottom: 10px;
+}
+#g{
+    font-family: Verdana, sans-serif;
+    border-bottom: 5px solid #FF6F04;
+}
+.header{
+    border-bottom: none;
+    text-align: center;
+}
+#last{
+    border-bottom: none;
+}
+.s{
+   padding: 15px;
+    margin-left: 10px;
+    border-spacing: 10px;
+}
