@@ -15,7 +15,7 @@ function CzyDuza() {
     var aaa, bbb, znaki, z, im, naz, licznik, dd;
     aaa = document.Form1.Imie.value;
     bbb = document.Form1.nazwisko.value;
-    znaki = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    znaki = "ABCDEFGHIJKLŁMNOPQRSTUVWXYZ";
     z = znaki.split("");
     im = aaa.split("");
     naz = bbb.split("");
@@ -38,22 +38,42 @@ function checkFile(filename) {
 	parts = filename.split('.');
 	ext = parts[parts.length - 1];
     a = ext.toLowerCase();
-    if (a === 'jpg' || a === 'gif' || a === 'bmp' || a === 'png' || a === 'tif') {
+    if (a === 'jpg' /*|| a === 'gif' || a === 'bmp' */|| a === 'png' || a === 'tif') {
         return 0;
     } else {
         alert("Nieprawidłowy format pliku!");
         return 1;
     }
 }
-
+function sprawdzPESEL() {
+    'use strict';
+    var pesel, x, xx, p, i;
+    x = document.Form1.bday.value;
+    xx = x.split("");
+    pesel = document.Form1.pesel.value;
+    p = pesel.split("");
+    if (xx[2] === p[0] && xx[3] === p[1] && xx[5] === p[2] && xx[6] === p[3] && xx[8] === p[4] && xx[9] === p[5]) {
+        return 0;
+    } else {
+        alert("Błędny PESEL! Nie zgadza się z datą urodzenia!");
+        return false;
+    }
+}
 function sprawdz(formularz) {
     'use strict';
     aktualizacjaWieku();
     var pesel, i, pole, plik;
-    pesel = formularz.PozostaloLiczb;
-    if (pesel.value != 0) {
-        alert("Nieprawidłowy PESEL!");
+    
+    if (document.Form1.zgoda.checked === false) {
+        alert("Musisz wyrazić zgodę na przetwarzanie danych!");
         return false;
+    }
+    pesel = formularz.PozostaloLiczb;
+    if (sprawdzPESEL() === 0) {
+        if (pesel.value != 0) {
+            alert("Nieprawidłowy PESEL!");
+            return false;
+        }
     }
     for (i = 0; i < formularz.length; i++) {
         pole = formularz.elements[i];
@@ -63,6 +83,7 @@ function sprawdz(formularz) {
         }
     }
     plik = checkFile(document.Form1.file.value);
+    
     if (plik === 0) {
         return new CzyDuza();
     } else {
