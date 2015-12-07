@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+session_start();
+if(empty($_SESSION['logged_in'])){
+    header('Location: login.php?action=not_yet_logged_in');
+}
+?>
+
 <html lang="pl">
 	<head>
     	
@@ -17,10 +24,10 @@
             <div id="nav">
             		
 			<ul class="menu">
-				<li class="menu"><a target="ramka" href="p0.html">Home page</a></li>
-				<li class="menu"><a target="ramka" href="p1.html">Project 1</a></li>
-				<li class="menu"><a target="ramka" href="p2.html">Project 2</a></li>
-				<li class="menu"><a target="ramka" href="p3.html">Project 3</a></li>
+				<li class="menu"><a target="ramka" href="p0.php">Home page</a></li>
+				<li class="menu"><a target="ramka" href="p1.php">Project 1</a></li>
+				<li class="menu"><a target="ramka" href="p2.php">Project 2</a></li>
+				<li class="menu"><a target="ramka" href="p3.php">Project 3</a></li>
 				<li class="menu"><a target="ramka" href="p4.html">Project 4</a></li>
 				<li class="menu"><a target="ramka" href="p5.html">Project 5</a></li>
 				<li class="menu"><a target="ramka" href="contact.html">Contact</a></li>
@@ -42,12 +49,12 @@
             <img id="h5c3" src="html5css3.png" alt="logo HTML 5">
             <br>
     <a href="http://jigsaw.w3.org/css-validator/check/referer">
-        <img style="border:0;width:88px;height:31px"
+        <img class = "w3c" style="border:0;width:88px;height:31px"
             src="http://jigsaw.w3.org/css-validator/images/vcss"
             alt="Poprawny CSS!" />
-    </a>
+    </a><br>
         <a href="http://jigsaw.w3.org/css-validator/check/referer">
-    <img style="border:0;width:88px;height:31px"
+    <img class = "w3c" style="border:0;width:88px;height:31px"
         src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
         alt="Poprawny CSS!" />
     </a>

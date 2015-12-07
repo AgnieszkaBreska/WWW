@@ -1,4 +1,17 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
+<?php
+// STEP 1. Start the PHP session.
+// should be the first to start, to prevent 'headers already sent' errors
+session_start();
+ 
+// STEP 2. Check if a user is NOT YET logged in by checking the session value
+if(empty($_SESSION['logged_in'])){
+ 
+    // if the session value is empty, he is not yet logged in
+    // redirect him to login page
+    header('Location: login.php?action=not_yet_logged_in');
+}
+?><!DOCTYPE HTML>
+
 <html lang="pl">
 	<head>
     	
@@ -9,8 +22,8 @@
 		<title>Breśka Agnieszka</title>
 	</head>
 	<FRAMESET ROWS=" 11%,*">
-	       <FRAME SRC="menu2.html" SCROLLING="no">
-	       <FRAME SRC="zalozenia2.html" NAME="CV" >
+	       <FRAME SRC="menu3.html" SCROLLING="no">
+	       <FRAME SRC="zalozenia3.html" NAME="CV" >
             <NOFRAMES>
                 <BR><BR><BR>
                 <CENTER><FONT SIZE=6>

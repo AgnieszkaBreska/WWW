@@ -1,4 +1,20 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<?php
+session_start();
+if(empty($_SESSION['logged_in'])){
+    header('Location: login.php?action=not_yet_logged_in');
+}
+if($_POST){  
+       $_SESSION['name'] = $_POST['Imie'];
+        $_SESSION['surname'] = $_POST['nazwisko'];
+        $_SESSION['age'] = $_POST['Wiek'];
+        $_SESSION['pesel'] = $_POST['pesel'];
+        $_SESSION['sex'] = $_POST['plec'];
+        $_SESSION['studies'] = $_POST['studia'];
+        $_SESSION['comment'] = $_POST['kom'];
+
+    }
+?>
 <html lang="pl">
 	<head>
     	
@@ -14,7 +30,7 @@
 	</head>
 	<body id="formularz">
                     
-<FORM ACTION="mailto:abreska@vp.pl" METHOD="post" name="Form1"  ENCTYPE="text/plain" onreset="if (!confirm('Czy na pewno chcesz wyczyścić cały formularz?')) return false" onsubmit="if (sprawdz(this)) return true; return false" >
+<FORM ACTION="formularz.php" METHOD="post" name="Form1"  ENCTYPE="text/plain" onreset="if (!confirm('Czy na pewno chcesz wyczyścić cały formularz?')) return false" onsubmit="if (sprawdz(this)) return true; return false" >
          <br>
     
     
@@ -28,8 +44,8 @@ Podaj swoje nazwisko: <br>
         
         
 
-Wprowadź swoją datę urodzenia:<br> 
-      <input onchange="aktualizacjaWieku()" type="date" name="bday"><br><br>
+Wprowadź swoją datę urodzenia: <br>
+      <input onchange="aktualizacjaWieku()" type="date" name="bday"> (obowiązkowe)<br><br>
 Wiek:<br>
         <input type="text" name="Wiek" readonly class="readonly" value="0" style="width:50px">	
         <br><br>
@@ -57,7 +73,7 @@ Napisz jakiś komentarz o mojej stronie! <br>
             <br><br>
     
 
-Wyśij mi jakiś plik!
+Wyśij mi jakiś plik! (obowiązkowe)
             <br>
         <INPUT TYPE="file" id="file" name="file" accept=".jpg,.tif,.png,.jpeg" > 
             <br><br>

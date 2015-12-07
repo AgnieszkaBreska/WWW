@@ -1,4 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
+<?php
+session_start();
+if(empty($_SESSION['logged_in'])){
+    header('Location: login.php?action=not_yet_logged_in');
+}
+?><!DOCTYPE HTML>
+
 <html lang="pl">
 	<head>
     	
@@ -9,8 +15,8 @@
 		<title>Breśka Agnieszka</title>
 	</head>
 	<FRAMESET ROWS=" 11%,*">
-	       <FRAME SRC="menu.html" SCROLLING="no">
-	       <FRAME SRC="zalozenia.html" NAME="CV" >
+	       <FRAME SRC="menu2.html" SCROLLING="no">
+	       <FRAME SRC="zalozenia2.html" NAME="CV" >
             <NOFRAMES>
                 <BR><BR><BR>
                 <CENTER><FONT SIZE=6>
@@ -20,8 +26,4 @@
                 </FONT></CENTER>
             </NOFRAMES>		
     </FRAMESET>
-     <p>
-    <a href="http://validator.w3.org/check?uri=referer"><img
-      src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01 Frameset" height="31" width="88"></a>
-  </p>               
 </html>

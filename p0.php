@@ -1,4 +1,16 @@
-<!DOCTYPE html>
+<?php
+// STEP 1. Start the PHP session.
+// should be the first to start, to prevent 'headers already sent' errors
+session_start();
+ 
+// STEP 2. Check if a user is NOT YET logged in by checking the session value
+if(empty($_SESSION['logged_in'])){
+ 
+    // if the session value is empty, he is not yet logged in
+    // redirect him to login page
+    header('Location: login.php?action=not_yet_logged_in');
+}
+?>
 <html lang="pl">
 	<head>
     	
